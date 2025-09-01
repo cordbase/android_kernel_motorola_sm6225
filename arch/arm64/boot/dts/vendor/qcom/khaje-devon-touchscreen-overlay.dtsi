@@ -114,6 +114,11 @@
 		focaltech,report_gesture_key;
 		focaltech,panel-supplier = "txd";
 		panel = <&dsi_ft8726_txd_90hz_video>;
+
+		/* DT2W additions */
+		wakeup-source;
+		focaltech,gesture-mode;
+		focaltech,enable-wakeup;
         };
 
 	novatek@1{
@@ -132,6 +137,11 @@
 		novatek,panel-supplier = "tm";
 		panel = <&dsi_tm_nt36672c_fhd_plus_90_video>;
 		status = "ok";
+
+		/* DT2W additions */
+		wakeup-source;
+		novatek,gesture-mode;
+		novatek,enable-wakeup;
 	};
 
 	ilitek@2 {
@@ -151,7 +161,11 @@
 		pinctrl-4 = <&ts_int_suspend_high>;
 		ilitek,report_gesture_key;
 		status = "ok";
+
+		/* DT2W additions */
+		wakeup-source;
+		ilitek,gesture-mode;
+		ilitek,enable-wakeup;
 	};
 
 };
-
