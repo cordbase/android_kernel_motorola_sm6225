@@ -126,6 +126,7 @@
 		pinctrl-2 = <&ts_release>;
 		mmi,power-off-suspend;
 		mmi,enable-gestures;
++		goodix,report_gesture_key;
 		mmi,usb-charger-detection;
 	};
 
@@ -149,6 +150,7 @@
 
                 mmi,power-off-suspend;
                 mmi,enable-gestures;
++               focaltech,report_gesture_key;
                 mmi,usb-charger-detection;
 
                 panel = <&mot_csot_nt37701_655_1080x2400_dsc_cmd_v9>;
@@ -181,6 +183,7 @@
 
 		mmi,power-off-suspend;
 		mmi,enable-gestures;
++		synaptics,report_gesture_key;
 		mmi,usb-charger-detection;
 
 		panel = <&mot_visionox_rm692e5_655_1080x2400_dsc_cmd_v0
@@ -188,4 +191,3 @@
          };
 
 };
-
