@@ -534,7 +534,6 @@
 		mmi,typec-middle-current = <2000000>;
 		mmi,pd-allow-min-current = <1000000>;
 		mmi,step-first-current-comp = <0>;
-		mmi,dont-rerun-aicl;
 		mmi,qc3p-max-ibus-ma = <3000>;
 		mmi,qc3p-volt-steps = <20000>;
 		mmi,qc3p-volt-max = <10000000>;
