@@ -3114,6 +3114,9 @@ static int sgm4154x_enable_charging(struct charger_device *chg_dev, bool enable)
 		enable ? "enable" : "disable",
 		rc ? "failed" : "success");
 
+	if (enable)
+		sgm4154x_rerun_aicl(chg_dev);
+	
 	return rc;
 }
 
@@ -3315,7 +3318,7 @@ static struct charger_ops sgm4154x_chg_ops = {
 	.set_charging_current = sgm4154x_set_charging_current,
 	.set_constant_voltage = sgm4154x_set_charging_voltage,
 	.is_charge_halted = sgm4154x_is_charging_halted,
-
+    .rerun_aicl = sgm4154x_rerun_aicl,
 	.dump_registers = sgm4154x_dump_registers,
 	.is_enabled_charging = sgm4154x_is_enabled_charging,
 	.enable_termination = sgm4154x_enable_termination,
@@ -3516,6 +3519,10 @@ static int sgm4154x_probe(struct i2c_client *client,
 	i2c_set_clientdata(client, sgm);
 
 	ret = sgm4154x_hw_chipid_detect(sgm);
+	if (ret < 0) {
+		pr_info("[%s] device not found, ret = %d!!!\n", __func__, ret);
+		return ret;
+	}
 #ifdef __SGM41513_CHIP_ID__
 	if ((ret & SGM4154x_PN_MASK) != SGM4154x_PN_41513_ID){
 
